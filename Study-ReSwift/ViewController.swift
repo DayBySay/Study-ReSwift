@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import ReSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, StoreSubscriber {
+    typealias StoreSubscriberStateType = 
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

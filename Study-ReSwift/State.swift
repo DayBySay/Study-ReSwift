@@ -13,14 +13,14 @@ struct AppState: StateType {
     var message: Message
     var turn: Turn
     var player1Play: Play
-    var Player2Play: Play
+    var player2Play: Play
     var result: Result?
 
     init() {
         self.message = .player1choose
         self.turn = Turn(player: .one)
         self.player1Play = Play(chosen: false, weapon: nil)
-        self.Player2Play = Play(chosen: false, weapon: nil)
+        self.player2Play = Play(chosen: false, weapon: nil)
     }
 }
 
@@ -81,9 +81,9 @@ func appReducer(action: Action, state: AppState?) -> AppState {
             state.message = .player2choose
         case .two:
             let play = Play(chosen: true, weapon: chooseWeaponAction.weapon)
-            state.Player2Play = play
+            state.player2Play = play
             let player1weapon = state.player1Play.weapon ?? .rock
-            let player2weapon = state.player1Play.weapon ?? .rock
+            let player2weapon = state.player2Play.weapon ?? .rock
             
             switch player1weapon {
             case .rock:
